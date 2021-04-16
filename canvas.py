@@ -7,9 +7,9 @@ cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 cap.set(10,150)
 
-myColors = [[90,48,0,118,255,255]]
+myColors = [[66,188,0,86,255,255]]
             #[[5,107,0,19,255,255]]
-            #[133,56,0,159,156,255]
+            #[133,56,0,159,156,255] 
             #[57,76,0,100,255,255],
             #[90,48,0,118,255,255]]
 myColorValues = [[255,0,0]]         ## BGR
@@ -67,6 +67,6 @@ while True:
         drawOnCanvas(myPoints,myColorValues)
 
 
-    cv2.imshow("Result", imgResult)
+    cv2.imshow("Aircanvas", imgResult)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
