@@ -7,6 +7,9 @@ cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 cap.set(10,150)
 
+
+# [66,188,0,86,255,255] vaishnav
+
 myColors = [[66,188,0,86,255,255]]
             #[[5,107,0,19,255,255]]
             #[133,56,0,159,156,255] 
