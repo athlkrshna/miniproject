@@ -49,10 +49,18 @@ def getContours(img):
             peri = cv2.arcLength(cnt,True)
             approx = cv2.approxPolyDP(cnt,0.02*peri,True)
             x, y, w, h = cv2.boundingRect(approx)
+            
+    p1,p2=x+w//2,y
+    # if p1<=140 and p1>=40 and p2<=65 and p2>=1:
+    #     imgResult = np.zeros([480,640,3],dtype=np.uint8)
+    #     imgResult.fill(255)
+    #     frame = cv2.rectangle(imgResult, (40, 1), (140, 65), (122, 122, 122), -1)
+    # print(p1,p2)
     return x+w//2,y
 
 def drawOnCanvas(myPoints,myColorValues):
     for point in myPoints:
+        print(point)
         cv2.circle(imgResult, (point[0], point[1]), 5, myColorValues[point[2]], cv2.FILLED)
 
 
@@ -63,14 +71,19 @@ while True:
         break
     imgResult = np.zeros([480,640,3],dtype=np.uint8)
     imgResult.fill(255)
-    
+    frame = cv2.rectangle(imgResult, (40, 1), (140, 65), (122, 122, 122), -1)
+    cv2.putText(frame, "CLEAR ALL", (49, 33),cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255, 255, 255), 2, cv2.LINE_AA)
     newPoints = findColor(img, myColors,myColorValues)
+    
     if len(newPoints)!=0:
         for newP in newPoints:
+            
             myPoints.append(newP)
     if len(myPoints)!=0:
+        print(myPoints)
         drawOnCanvas(myPoints,myColorValues)
-
+    
+  
 
     cv2.imshow("Aircanvas", imgResult)
     if cv2.waitKey(1) & 0xFF == ord('q'):
