@@ -9,12 +9,14 @@ cap.set(10,150)
 
 
 # [66,188,0,86,255,255] vaishnav
+# [90,48,0,118,255,255] athul
 
-myColors = [[59,72,163,83,255,255]]
+myColors = [[90,48,0,118,255,255]]
             #[[5,107,0,19,255,255]]
             #[133,56,0,159,156,255] 
             #[57,76,0,100,255,255],
-            #[90,48,0,118,255,255]]
+            #[90,48,0,118,255,255]
+            # [59,72,163,83,255,255]
 myColorValues = [[0,0,0]]         ## BGR
                 #[51,153,255]
                  #[255,0,255],
@@ -74,13 +76,19 @@ while True:
     frame = cv2.rectangle(imgResult, (40, 1), (140, 65), (122, 122, 122), -1)
     cv2.putText(frame, "CLEAR ALL", (49, 33),cv2.FONT_HERSHEY_SIMPLEX, 0.5,(255, 255, 255), 2, cv2.LINE_AA)
     newPoints = findColor(img, myColors,myColorValues)
-    
+    flag=0
     if len(newPoints)!=0:
         for newP in newPoints:
-            
-            myPoints.append(newP)
+            if 40<= newP[0]<= 140 and newP[1]<=65:
+                flag=1
+                #imgResult = np.zeros([480,640,3],dtype=np.uint8)
+                #imgResult.fill(255)
+            else:
+                myPoints.append(newP)
     if len(myPoints)!=0:
-        print(myPoints)
+        if flag==1:
+            myPoints=[]
+
         drawOnCanvas(myPoints,myColorValues)
     
   
