@@ -10,12 +10,12 @@ cap.set(10,150)
 
 # [66,188,0,86,255,255] vaishnav
 
-myColors = [[66,188,0,86,255,255]]
+myColors = [[59,72,163,83,255,255]]
             #[[5,107,0,19,255,255]]
             #[133,56,0,159,156,255] 
             #[57,76,0,100,255,255],
             #[90,48,0,118,255,255]]
-myColorValues = [[255,0,0]]         ## BGR
+myColorValues = [[0,0,0]]         ## BGR
                 #[51,153,255]
                  #[255,0,255],
                  #[0,255,0],
@@ -61,7 +61,9 @@ while True:
     img= cv2.flip(img1, 1)
     if img is None:
         break
-    imgResult = img.copy()
+    imgResult = np.zeros([480,640,3],dtype=np.uint8)
+    imgResult.fill(255)
+    
     newPoints = findColor(img, myColors,myColorValues)
     if len(newPoints)!=0:
         for newP in newPoints:
