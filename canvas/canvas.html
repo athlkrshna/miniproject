@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Sketchpad</title>
+<link rel="stylesheet" type="text/css" href="style.css" /> 
+
+<script type="text/javascript" src="app.js"></script> 
+
+</head>
+
+<body onload="init()">
+    <div id="sketchpadapp">
+        <div class="leftside">
+             Touchscreen and mouse support HTML5 canvas sketchpad.<br/><br/>
+             Draw something by tapping or dragging.<br/><br/>
+             Works on iOS, Android and desktop/laptop touchscreens using Chrome/Firefox/Safari.<br/><br/>
+             <input type="submit" value="Clear Sketchpad" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+        </div>
+        <div class="rightside">
+            <canvas id="sketchpad" height="600" width="1000">
+            </canvas>
+        </div>
+    </div>
+</body>
+</html>
