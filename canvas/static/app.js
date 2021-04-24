@@ -127,3 +127,10 @@
             canvas.addEventListener('touchmove', sketchpad_touchMove, false);
         }
     }
+
+    function saveImage() {
+        
+        document.getElementById('save').value = canvas.toDataURL('image/png');
+        document.forms["form1"].submit();
+    
+      }    
