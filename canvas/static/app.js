@@ -110,7 +110,7 @@
     function init() {
         // Get the specific canvas element from the HTML document
         canvas = document.getElementById('sketchpad');
-
+        btn = document.getElementById('btn');
         // If the browser supports the canvas tag, get the 2d drawing context for this canvas
         if (canvas.getContext)
             ctx = canvas.getContext('2d');
@@ -126,11 +126,19 @@
             canvas.addEventListener('touchstart', sketchpad_touchStart, false);
             canvas.addEventListener('touchmove', sketchpad_touchMove, false);
         }
-    }
 
-    function saveImage() {
-        
-        document.getElementById('save').value = canvas.toDataURL('image/png');
-        document.forms["form1"].submit();
+
+        if(btn){
+            btn.addEventListener('click' , () => {
+                base64 = canvas.toDataURL("image/png")
+                $.post( "/upload", {
+                    canvas: base64 
+                });
+            })
+        }
+    }
     
-      }    
+    
+
+
+      
