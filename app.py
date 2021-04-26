@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import base64
-
+import cv2
 
 app= Flask(__name__)
 
@@ -15,8 +15,8 @@ def upload_base64_file():
         # response 
         data = request.form
         if data is None:
-            print("No valid request body, json missing!")
-            return jsonify({'error': 'No valid request body, json missing!'})
+            print("No valid request body, missing!")
+            
         else:
             img_data = data['canvas']
             img_data = img_data.partition(",")[2]
@@ -25,9 +25,9 @@ def upload_base64_file():
             convert_and_save(img_data)
         return render_template("canvas.html")
 def convert_and_save(b64_string):
-    with open("imageToSave.png", "wb") as fh:
+    with open("imageToSave.jpg", "wb") as fh:
         fh.write(base64.decodebytes(b64_string.encode()))
-
+    
 
 # @app.route("/upload" , methods=['GET','POST'])
 # def upload():
