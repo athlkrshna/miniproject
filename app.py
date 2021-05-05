@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 import base64
 
+import rgb2grey
+
 
 app= Flask(__name__)
 
@@ -23,7 +25,20 @@ def upload_base64_file():
             pad = len(img_data)%4
             img_data += "="*pad
             convert_and_save(img_data)
+
+
+            # convert to grey scale 
+            rgb2grey.imgTogrey()
+
+
+            # input to model
+
+
         return render_template("canvas.html")
+
+
+
+
 def convert_and_save(b64_string):
     with open("imageToSave.jpg", "wb") as fh:
         fh.write(base64.decodebytes(b64_string.encode()))
