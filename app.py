@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import base64
+import model
 
 import rgb2grey
 
@@ -32,9 +33,9 @@ def upload_base64_file():
 
 
             # input to model
+            final=model.predict()
 
-
-        return render_template("canvas.html")
+        return render_template("canvas.html" , final=final)
 
 
 
