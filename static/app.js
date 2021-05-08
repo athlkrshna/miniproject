@@ -31,7 +31,7 @@
     // Keep track of the mouse button being pressed and draw a dot at current location
     function sketchpad_mouseDown() {
         mouseDown=1;
-        drawDot(ctx,mouseX,mouseY,2);
+        drawDot(ctx,mouseX,mouseY,4);
     }
 
     // Keep track of the mouse button being released
@@ -46,7 +46,7 @@
 
         // Draw a dot if the mouse button is currently being pressed
         if (mouseDown==1) {
-            drawDot(ctx,mouseX,mouseY,2);
+            drawDot(ctx,mouseX,mouseY,4);
         }
     }
 
@@ -70,7 +70,7 @@
         // Update the touch co-ordinates
         getTouchPos();
 
-        drawDot(ctx,touchX,touchY,2);
+        drawDot(ctx,touchX,touchY,4);
 
         // Prevents an additional mousedown event being triggered
         event.preventDefault();
@@ -82,7 +82,7 @@
         getTouchPos(e);
 
         // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
-        drawDot(ctx,touchX,touchY,2); 
+        drawDot(ctx,touchX,touchY,4); 
 
         // Prevent a scrolling action as a result of this touchmove triggering.
         event.preventDefault();

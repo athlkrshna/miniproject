@@ -34,7 +34,7 @@ def upload_base64_file():
 
             # input to model
             final=model.predict()
-
+            print('string ',final)
         return render_template("canvas.html" , final=final)
 
 
