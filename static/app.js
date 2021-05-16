@@ -128,15 +128,17 @@
         }
 
 
-        if(btn){
+        
             btn.addEventListener('click' , () => {
                 base64 = canvas.toDataURL("image/png")
                 console.log(base64)
-                $.post( "/upload", {
-                    canvas: base64 
-                });
+                document.getElementById('canv').value=base64;
+                document.getElementById("myForm").submit();
+                
             })
-        }
+        
+
+
     }
     
     

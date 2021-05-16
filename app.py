@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request
 import base64
 import model
-
+import time
 import rgb2grey
-
+import calc
 
 app= Flask(__name__)
 
@@ -25,6 +25,7 @@ def upload_base64_file():
             img_data = img_data.partition(",")[2]
             pad = len(img_data)%4
             img_data += "="*pad
+            
             convert_and_save(img_data)
 
 
@@ -34,8 +35,11 @@ def upload_base64_file():
 
             # input to model
             final=model.predict()
+            ans=calc.eval_expr(final)
             print('string ',final)
-        return render_template("canvas.html" , final=final)
+            print('ans ',ans)
+            time.sleep(3)
+        return render_template("canvas.html" , final=final,ans=ans)
 
 
 
@@ -45,11 +49,7 @@ def convert_and_save(b64_string):
         fh.write(base64.decodebytes(b64_string.encode()))
     
 
-# @app.route("/upload" , methods=['GET','POST'])
-# def upload():
-#     if request.method == "POST":
-#           print(request.form['canvas'])
-#     return render_template("canvas.html")
+
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(debug=True , host='0.0.0.0')

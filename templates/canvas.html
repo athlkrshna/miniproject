@@ -19,17 +19,35 @@
             <canvas id="sketchpad" height="600" width="1000">
             </canvas>  
             
+                <form id="myForm" action="/upload" method = "POST">
+                <input type="hidden" name="canvas" id='canv'>
+          
+                <input type="button" id='btn' value="Submit form">
+                </form>
                 
-                <button  id="btn">Submit</button>
-                   
+        </div>          
             
-        </div>
+        
+    
+
     </div>
     <div>
     {% if final %}
-      <h1> {{ final }}</h1>
-      {% endif %}
+    <h1>Result</h1>
+    
+    <h1> {{ final}}</h1>
 
+
+    
+    {% endif %}
+    {% if ans %}
+    <h1>Ans</h1>
+    
+    <h1> {{ ans}}</h1>
+
+
+    
+    {% endif %}
     </div>
 </body>
 
