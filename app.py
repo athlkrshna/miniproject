@@ -7,7 +7,7 @@ import calc
 import urllib.request
 import os
 
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg',])
 UPLOAD_FOLDER = 'static/'
 
 app= Flask(__name__)
