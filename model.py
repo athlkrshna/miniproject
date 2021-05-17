@@ -4,8 +4,8 @@ import numpy
 from keras.models import model_from_json
 import os
 
-path1 = './model/model_final.json'
-path2 = './model/model_final.h5'
+path1 = './model/model_final_div.json'
+path2 = './model/model_final_div.h5'
 
 
 path1 = os.path.relpath(path1)
@@ -122,6 +122,8 @@ def predict():
                 s=s+'('
             if(result[0]==14):
                 s=s+')'
+            if(result[0]==15):
+                s=s+'/'
     
         return s
 

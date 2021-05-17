@@ -7,9 +7,15 @@ import calc
 
 app= Flask(__name__)
 
-@app.route("/")
+
+
+@app.route("/canvas")
 def index():
     return render_template("canvas.html")
+
+
+
+
 
 @app.route('/upload', methods=['GET','POST']) 
 def upload_base64_file():
@@ -39,6 +45,7 @@ def upload_base64_file():
             print('string ',final)
             print('ans ',ans)
             time.sleep(3)
+            
         return render_template("canvas.html" , final=final,ans=ans)
 
 
