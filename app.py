@@ -20,6 +20,11 @@ def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+@app.route("/")
+def home_page():
+    return render_template("home.html")
+
+
 @app.route("/canvas")
 def index():
     return render_template("canvas.html")
@@ -101,3 +106,5 @@ def convert_and_save(b64_string):
 
 if __name__=='__main__':
     app.run(debug=True)
+
+    
