@@ -27,3 +27,21 @@
 		<input type="submit" value="Submit">
 	</p>
 </form>
+
+
+<div>
+    {% if final %}
+    <h1>Result</h1>
+    
+    <h1> {{ final}}</h1>
+    
+    {% endif %}
+    {% if ans!= None %}
+    <h1>Ans</h1>
+    
+    <h1> {{ ans}}</h1>
+
+
+    
+    {% endif %}
+    </div>

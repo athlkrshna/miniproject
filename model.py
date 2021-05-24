@@ -4,13 +4,13 @@ import numpy
 from keras.models import model_from_json
 import os
 
-path1 = './model/model_final_div.json'
-path2 = './model/model_final_div.h5'
-
+path1 = './model/model_final.json'
+path2 = './model/model_final.h5'
+path_img = './static/image.jpg'
 
 path1 = os.path.relpath(path1)
 path2 = os.path.relpath(path2)
-
+path_img = os.path.relpath(path_img)
 
 
 json_file = open(path1, 'r')
@@ -25,7 +25,8 @@ import cv2
 import numpy as np
 
 def predict():
-        img = cv2.imread('test.jpg',cv2.IMREAD_GRAYSCALE)
+        img = cv2.imread(path_img,cv2.IMREAD_GRAYSCALE)
+        
         #kernel = np.ones((3,3),np.uint8)
 
         #erosion = cv2.erode(img,kernel,iterations = 3)
