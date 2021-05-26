@@ -41,7 +41,12 @@
     {% if ans!= None %}
     <h1>Ans</h1>
     
-    <h1> {{ ans}}</h1>
+ 
+    
+    
+    <textarea readonly id="answer"> {{ ans}}</textarea><br>
+
+    <button onclick="copyToClip()">Copy answer</button>
 
 
     

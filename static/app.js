@@ -140,7 +140,14 @@
 
 
     }
-    
+
+    function copyToClip() {
+        var copyText = document.getElementById('answer');
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        alert("Copied the answer: " + copyText.value);
+      }
     
 
 
