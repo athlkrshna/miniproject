@@ -83,14 +83,14 @@ def predict():
                 im_resize = cv2.resize(im_crop,(28,28))
                 
 
-                im_resize=np.reshape(im_resize,(1,28,28))
+                im_resize=np.reshape(im_resize,(28,28,1))
                 train_data.append(im_resize)
 
 
         s=''
         for i in range(len(train_data)):
             train_data[i]=np.array(train_data[i])
-            train_data[i]=train_data[i].reshape(1,1,28,28)
+            train_data[i]=train_data[i].reshape(1,28,28,1)
             print(train_data[i].shape)
             result=loaded_model.predict_classes(train_data[i])
             if(result[0]==10):
