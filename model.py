@@ -4,8 +4,8 @@ import numpy
 from keras.models import model_from_json
 import os
 
-path1 = './model/model_final.json'
-path2 = './model/model_final.h5'
+path1 = './model/model_final_test.json'
+path2 = './model/model_final_test.h5'
 path_img = './static/image.jpg'
 
 path1 = os.path.relpath(path1)
