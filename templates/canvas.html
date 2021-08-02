@@ -9,12 +9,9 @@
 </head>
 
 <body onload="init()">
-    <h1 class="text-primary">Handwritten Equation Solver</h1>
+    <h1 class=" h">Handwritten Equation Solver</h1>
     <div id="sketchpadapp">
-        <div class="leftside">
-
-             <input type="submit" value="Clear Sketchpad" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
-        </div>
+        
         <div class="rightside">
             <canvas id="sketchpad" height="600" width="1000">
             </canvas>  
@@ -25,7 +22,11 @@
                 <input type="button" id='btn' value="Submit form">
                 </form>
                 
-        </div>          
+        </div>   
+        <div class="leftside">
+
+            <input type="submit" value="Clear Sketchpad" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+       </div>       
             
         
     
@@ -33,20 +34,28 @@
     </div>
     <div>
     {% if final %}
-    <h1>Result</h1>
+    <div class="results">
+
+        <h1>Result</h1>
     
-    <h1> {{ final}}</h1>
+        <h2> {{ final}}</h2>
+
+    </div>
+    
     
     {% endif %}
     {% if ans!= None %}
-    <h1>Ans</h1>
-    
- 
-    
-    
-    <textarea readonly id="answer"> {{ ans}}</textarea><br>
 
-    <button onclick="copyToClip()">Copy answer</button>
+    <div class="ans">
+
+        <h1>Ans</h1>
+    
+
+        <textarea readonly id="answer"> {{ ans}}</textarea><br>
+
+        <button onclick="copyToClip()">Copy answer</button>
+    </div>
+    
 
 
     

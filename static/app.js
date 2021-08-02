@@ -11,7 +11,7 @@
     // Parameters are: A canvas context, the x position, the y position, the size of the dot
     function drawDot(ctx,x,y,size) {
         // Let's use black by setting RGB values to 0, and 255 alpha (completely opaque)
-        r=255; g=0; b=0; a=255;
+        r=148; g=38; b=39; a=255;
 
         // Select a fill style
         ctx.fillStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
